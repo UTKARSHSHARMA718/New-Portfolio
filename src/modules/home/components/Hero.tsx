@@ -1,3 +1,4 @@
+
 export default function Hero() {
   return (
     <section className="relative pt-20 pb-16 overflow-hidden">
@@ -9,7 +10,7 @@ export default function Hero() {
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
       >
         <source
-          src="E:\Projects\nextjs Portfolio\new portfolio\portfolio\public\videos\bg.mp4"
+          src="/videos/bg.mp4"
           type="video/mp4"
         />
       </video>
