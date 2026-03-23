@@ -1,46 +1,27 @@
 "use client";
 
-import { useState } from "react";
+import ContactHeader from "./ContactHeader";
+import ContactLinks from "./ContactLinks";
+import ContactForm from "./ContactForm";
 
 export default function ContactPreview() {
-  const [loading, setLoading] = useState(false);
-
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-
-    setTimeout(() => setLoading(false), 1500);
-  };
 
   return (
-    <section id="contact" className="py-20">
-      <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-6">
-        <div>
-          <h2 className="text-3xl font-bold mb-4">Get in touch</h2>
-          <p className="text-gray-400">
-            Open to opportunities and collaborations.
-          </p>
-        </div>
+    <main className="relative min-h-screen overflow-hidden bg-[linear-gradient(135deg,#07101f_0%,#0b1020_45%,#121933_100%)] px-4 py-8 text-white md:px-6 md:py-12">
+      <div className="absolute left-0 top-0 h-72 w-72 rounded-full bg-indigo-500/20 blur-3xl" />
+      <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-teal-400/10 blur-3xl" />
 
-        <form onSubmit={onSubmit} className="space-y-4">
-          <input
-            className="w-full p-3 rounded-lg bg-white/5 border border-white/10"
-            placeholder="Name"
-          />
-          <input
-            className="w-full p-3 rounded-lg bg-white/5 border border-white/10"
-            placeholder="Email"
-          />
-          <textarea
-            className="w-full p-3 rounded-lg bg-white/5 border border-white/10"
-            placeholder="Message"
-          />
+      <div className="relative z-10 mx-auto max-w-7xl">
+        <ContactHeader
+          title="Let’s build something great together."
+          description="Whether it’s a job opportunity, freelance project, collaboration, or just a tech discussion, feel free to reach out."
+        />
 
-          <button className="px-5 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-cyan-400 text-white">
-            {loading ? "Message queued ✨" : "Send Message"}
-          </button>
-        </form>
+        <section className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+          <ContactLinks />
+          <ContactForm />
+        </section>
       </div>
-    </section>
+    </main>
   );
 }
