@@ -1,7 +1,20 @@
 export default function Hero() {
   return (
-    <section className="pt-20 pb-16">
-      <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-[1.15fr_0.85fr] gap-10 items-center">
+    <section className="relative pt-20 pb-16 overflow-hidden">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+      >
+        <source
+          src="E:\Projects\nextjs Portfolio\new portfolio\portfolio\public\videos\bg.mp4"
+          type="video/mp4"
+        />
+      </video>
+      <div className="absolute inset-0 bg-black/50 z-1" />
+      <div className="relative z-20 max-w-6xl mx-auto px-4 grid md:grid-cols-[1.15fr_0.85fr] gap-10 items-center">
         <div>
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">
             <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-cyan-400 to-pink-400 shadow-lg" />
@@ -17,8 +30,8 @@ export default function Hero() {
           </h1>
 
           <p className="mt-4 text-gray-400 max-w-xl leading-relaxed">
-            I’m a software engineer focused on backend development, full-stack applications,
-            authentication flows, and real-time systems.
+            I’m a software engineer focused on backend development, full-stack
+            applications, authentication flows, and real-time systems.
           </p>
 
           <div className="mt-6 flex gap-4 flex-wrap">
