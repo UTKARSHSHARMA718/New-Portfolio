@@ -2,6 +2,7 @@ import "./globals.css";
 import Navbar from "@/modules/common/components/Navbar";
 import Footer from "@/modules/common/components/Footer";
 import { Poppins } from "next/font/google";
+import GlowCursor from "@/modules/common/components/GlowCursor";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -18,6 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${poppins.className} bg-[#0b1020] text-white`}>
         <Navbar />
+        <GlowCursor/>
         {children}
         <Footer />
       </body>
