@@ -2,7 +2,6 @@
 
 import ContactHeader from "./ContactHeader";
 import ContactLinks from "./ContactLinks";
-import ContactForm from "./ContactForm";
 
 export default function ContactPreview() {
 
@@ -16,10 +15,8 @@ export default function ContactPreview() {
           title="Let’s build something great together."
           description="Whether it’s a job opportunity, freelance project, collaboration, or just a tech discussion, feel free to reach out."
         />
-
-        <section className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+        <section className="grid gap-6 lg:grid-[0.9fr_1.1fr]">
           <ContactLinks />
-          <ContactForm />
         </section>
       </div>
     </main>

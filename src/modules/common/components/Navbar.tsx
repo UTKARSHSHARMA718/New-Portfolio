@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import useWindowSize from "../hooks/useWindowSize";
+import FloatingDock from "./FloatingDoc";
 
 const NAV_ITEMS = [
   { label: "Projects", href: "/projects" },
@@ -13,6 +15,11 @@ const NAV_ITEMS = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const { isMobile } = useWindowSize();
+
+  if(!isMobile){
+    return <FloatingDock/>
+  }
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur-xl bg-[#09101e]/70 border-b border-white/10">
