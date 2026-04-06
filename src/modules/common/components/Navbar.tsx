@@ -24,10 +24,10 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-xl bg-[#09101e]/70 border-b border-white/10">
       <div className="max-w-6xl mx-auto px-4">
-        <nav className="flex items-center justify-between h-[70px]">
+        <nav className="flex items-center justify-between h-17.5">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 font-semibold">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-indigo-500 to-cyan-400 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-linear-to-r from-indigo-500 to-cyan-400 flex items-center justify-center">
               U
             </div>
             <span>Utkarsh Sharma</span>

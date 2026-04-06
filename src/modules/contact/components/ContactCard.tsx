@@ -12,6 +12,7 @@ interface CardProps {
   theme?: CardTheme;
   className?: string;
   imgClassName?: string;
+  link: string;
 }
 
 /* 🎨 Shape Variants */
@@ -34,6 +35,7 @@ const Card: React.FC<CardProps> = ({
   theme = "linkedin",
   className,
   imgClassName,
+  link,
 }) => {
   return (
     <div
@@ -79,7 +81,9 @@ const Card: React.FC<CardProps> = ({
         className={`${imgClassName} absolute`}
       />
 
-      <button
+      <a
+        href={link}
+        target="_blank"
         className="
           px-5 py-2 rounded-full
           bg-black/70 text-white
@@ -90,7 +94,7 @@ const Card: React.FC<CardProps> = ({
           "
       >
         {buttonText}
-      </button>
+      </a>
     </div>
   );
 };

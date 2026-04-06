@@ -13,7 +13,7 @@ export type SkillCategory = {
 export const experiences: ExperienceItem[] = [
   {
     company: "Unthinkable Solutions",
-    role: "Frontend Developer",
+    role: "Junior Associate",
     date: "April 2023 - Feb 2024",
     highlights: [
       "Used Ant Design, Material UI, and similar UI frameworks to reduce development time by 25% across projects.",
@@ -27,7 +27,7 @@ export const experiences: ExperienceItem[] = [
   },
   {
     company: "HestaBit",
-    role: "Backend / Full-Stack Engineer · Technical Lead",
+    role: "Software Engineer",
     date: "May 2024 - Present",
     highlights: [
       "Led end-to-end architecture and backend development of multiple large-scale products, including system design, cloud infrastructure, scalability planning, and production deployments.",
