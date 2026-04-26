@@ -21,14 +21,16 @@ const ProjectDetailsPage = ({ content, projectName, repoUrl }: Props) => {
       <div className="max-w-5xl mx-auto px-4 py-10">
         {/* 🧠 Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-2">{projectName || 'No Name'}</h1>
+          <h1 className="text-4xl font-bold mb-2">
+            {projectName || "No Name"}
+          </h1>
 
           <a
             href={repoUrl}
             target="_blank"
             className="text-blue-500 hover:underline break-all"
           >
-            {repoUrl|| 'No link'}
+            {repoUrl || "No link"}
           </a>
         </div>
 
@@ -37,7 +39,7 @@ const ProjectDetailsPage = ({ content, projectName, repoUrl }: Props) => {
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={{
-              code({ inline, className, children, ...props }) {
+              code({ inline, className, children, ...props }: any) {
                 const match = /language-(\w+)/.exec(className || "");
                 return !inline && match ? (
                   <SyntaxHighlighter language={match[1]}>
