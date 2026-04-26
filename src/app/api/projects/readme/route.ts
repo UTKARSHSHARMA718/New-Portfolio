@@ -23,7 +23,6 @@ export const GET = async (req: NextRequest) => {
   );
   const content = await res.text();
 
-  console.log({ content });
   return NextResponse.json({
     projectData: {
       ...project,

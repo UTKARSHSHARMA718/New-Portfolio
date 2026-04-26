@@ -8,7 +8,6 @@ export default async function ProjectDetails({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  console.log({ id });
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/projects/readme?id=${id}`,
   );
@@ -16,11 +15,14 @@ export default async function ProjectDetails({
 
   return (
     <PageTransition className="flex-1">
-      <ProjectDetailsPage
-        content={result.projectData.readMe}
-        projectName={result.projectData?.title}
-        repoUrl={result.projectData?.repoLink}
-      />
+      {result && (
+        <ProjectDetailsPage
+          content={result.projectData.readMe}
+          projectName={result.projectData?.title}
+          repoUrl={result.projectData?.repoLink}
+        />
+      )}
+      {!result && <div>No project found!</div>}
     </PageTransition>
   );
 }
