@@ -10,7 +10,7 @@ export default async function ProjectDetails({
   const { id } = await params;
   console.log({ id });
   const res = await fetch(
-    `${process.env.BACKEND_URL}/projects/readme?id=${id}`,
+    `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/projects/readme?id=${id}`,
   );
   const result: GetProjectDetailsResponse = await res.json();
 

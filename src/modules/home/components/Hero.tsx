@@ -3,6 +3,15 @@
 import Link from "next/link";
 
 export default function Hero() {
+  const handleResumeClick = async () => {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/resume`,
+    );
+    const data = await res.json();
+
+    window.open(data.url, "_blank");
+  };
+
   return (
     <section className="relative pt-20 pb-16 overflow-hidden flex-1 text-white">
       {/* 🎥 Background Video */}
@@ -30,7 +39,7 @@ export default function Hero() {
 
           <h1 className="mt-6 text-4xl md:text-6xl font-bold leading-tight">
             Designing{" "}
-            <span className="bg-gradient-to-r from-white to-cyan-300 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-white to-cyan-300 bg-clip-text text-transparent">
               scalable systems
             </span>{" "}
             & real-time applications
@@ -45,18 +54,23 @@ export default function Hero() {
           <div className="mt-6 flex gap-4 flex-wrap">
             <Link
               href="/contact"
-              className="px-5 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-cyan-400 text-white"
+              className="px-5 py-3 rounded-full bg-linear-to-r from-indigo-500 to-cyan-400 text-white"
             >
               Contact Me
             </Link>
 
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              className="px-5 py-3 rounded-full border border-white/20 hover:bg-white/10"
-            >
-              View Resume
-            </a>
+            <div className="relative inline-block group">
+              {/* Glow layer */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500 rounded-full blur-md opacity-70 group-hover:opacity-100 animate-glow" />
+
+              {/* Button */}
+              <button
+                onClick={handleResumeClick}
+                className="relative px-6 py-3 rounded-full bg-black text-white border border-white/20 backdrop-blur-md"
+              >
+                View Resume
+              </button>
+            </div>
           </div>
         </div>
 
