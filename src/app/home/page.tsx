@@ -3,7 +3,7 @@ import Hero from "@/modules/home/components/Hero";
 
 const page = () => {
   return (
-    <PageTransition>
+    <PageTransition className="flex-1 flex flex-col">
       <Hero />
     </PageTransition>
   );

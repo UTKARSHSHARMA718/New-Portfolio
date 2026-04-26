@@ -26,8 +26,6 @@ body {
   cursor: none;
 }
 
-
-
 .glow-cursor {
   position: fixed;
   top: 0;
@@ -46,4 +44,20 @@ body {
 
   transform: translate(-50%, -50%);
   transition: transform 0.05s linear;
+}
+
+@keyframes gradientMove {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  50% {
+    transform: translate(20%, 20%);
+  }
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+
+.animate-gradient {
+  animation: gradientMove 8s ease infinite;
 }

@@ -1,10 +1,14 @@
 import PageTransition from "@/modules/common/components/PageTransition";
 import ProjectsPreview from "@/modules/projects/components/ProjectsPreview";
+import { GetProjectsResponse } from "@/modules/projects/projects.types";
 
-const page = () => {
+const page = async () => {
+  const response = await fetch(`${process.env.BACKEND_URL}/projects`);
+  const allProjects: GetProjectsResponse = await response.json();
+
   return (
     <PageTransition>
-      <ProjectsPreview />
+      <ProjectsPreview projects={allProjects.projects} />
     </PageTransition>
   );
 };

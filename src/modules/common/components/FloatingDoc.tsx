@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 
 const NAV_ITEMS = [
-  { label: "Home", href: "/", icon: Home },
+  { label: "Home", href: "/home", icon: Home },
   { label: "Projects", href: "/projects", icon: Folder },
   { label: "Experience", href: "/experience", icon: Briefcase },
   { label: "Contact", href: "/contact", icon: Mail },
@@ -46,7 +46,7 @@ export default function FloatingDock() {
                 </div>
 
                 {/* Label (appears on hover like macOS) */}
-                <span className="text-xs mt-1 text-white opacity-0 h-0 group-hover:opacity-100 group-hover:h-full transition">
+                <span className="text-xs mt-1 text-white opacity-0 h-0 group-hover:opacity-100 transition">
                   {item.label}
                 </span>
               </motion.div>

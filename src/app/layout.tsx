@@ -18,11 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.className} bg-[#0b1020] text-white flex flex-col min-h-[100vh]`}
+        className={`${poppins.className} bg-[#0b1020] text-white flex flex-col min-h-screen`}
       >
         <Navbar />
         <GlowCursor />
-        <div className="flex-1">{children}</div>
+        <div className="flex flex-col flex-1">{children}</div>
         <Footer />
       </body>
     </html>
