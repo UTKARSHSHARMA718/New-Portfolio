@@ -21,7 +21,6 @@ export default function RootLayout({
         className={`${poppins.className} bg-[#0b1020] text-white flex flex-col min-h-screen`}
       >
         <Navbar />
-        <GlowCursor />
         <div className="flex flex-col flex-1">{children}</div>
         <Footer />
       </body>

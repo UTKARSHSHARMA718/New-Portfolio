@@ -1,15 +1,25 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Hero() {
-  const handleResumeClick = async () => {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/resume`,
-    );
-    const data = await res.json();
+  const [isLoading, setIsLoading] = useState(false);
 
-    window.open(data.url, "_blank");
+  const handleResumeClick = async () => {
+    try {
+      setIsLoading(true);
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/resume`,
+      );
+      const data = await res.json();
+
+      window.open(data.url, "_blank");
+    } catch (error) {
+      console.log("Error while getting resume:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -90,7 +100,8 @@ export default function Hero() {
 
               <button
                 onClick={handleResumeClick}
-                className="relative px-6 py-3 rounded-full bg-black text-white border border-white/20 backdrop-blur-md"
+                disabled={isLoading}
+                className="relative px-6 py-3 rounded-full bg-black text-white border border-white/20 backdrop-blur-md disabled:opacity-70"
               >
                 View Resume
               </button>
