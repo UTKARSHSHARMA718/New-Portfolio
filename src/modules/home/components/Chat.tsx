@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import { useSpeechToText } from "../hooks/useSpeechToText";
 
 interface Message {
   id: string;
@@ -35,6 +36,19 @@ const RAGChatInterface: React.FC<RAGChatInterfaceProps> = ({
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const chatContainerRef = useRef<HTMLDivElement>(null);
+
+  const {
+    isListening,
+    transcript,
+    interimTranscript,
+    startListening,
+    stopListening,
+    resetTranscript,
+  } = useSpeechToText({
+    onStop: () => {
+      setInput(transcript);
+    },
+  });
 
   // Auto-scroll to bottom when new messages arrive
   const scrollToBottom = () => {
@@ -75,6 +89,7 @@ const RAGChatInterface: React.FC<RAGChatInterfaceProps> = ({
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
     setIsLoading(true);
+    resetTranscript();
 
     // Reset textarea height
     if (inputRef.current) {
@@ -247,9 +262,12 @@ const RAGChatInterface: React.FC<RAGChatInterfaceProps> = ({
             <div className="absolute left-3 top-3 text-green-500 text-sm">
               $
             </div>
+            <button onClick={isListening ? stopListening : startListening}>
+              Mic
+            </button>
             <textarea
               ref={inputRef}
-              value={input}
+              value={input || interimTranscript}
               onChange={handleInputChange}
               onKeyDown={handleKeyDown}
               placeholder={placeholder}
