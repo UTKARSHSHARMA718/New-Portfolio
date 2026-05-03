@@ -2,9 +2,12 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import Chat from "@/modules/home/components/Chat";
+import CommonModal from "@/modules/common/components/CommonModal";
 
 export default function Hero() {
   const [isLoading, setIsLoading] = useState(false);
+  const [isOpenChatScreen, setIsOpenChatScreen] = useState(false);
 
   const handleResumeClick = async () => {
     try {
@@ -106,6 +109,13 @@ export default function Hero() {
                 View Resume
               </button>
             </div>
+
+            <button
+              onClick={() => setIsOpenChatScreen(true)}
+              className="px-5 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-cyan-400 text-white"
+            >
+              Chat With Me
+            </button>
           </div>
         </div>
 
@@ -135,6 +145,17 @@ export default function Hero() {
             <p>performance · scalability · clean architecture</p>
           </div>
         </div>
+
+        {isOpenChatScreen && (
+          <CommonModal
+            isOpen={isOpenChatScreen}
+            onClose={() => setIsOpenChatScreen(false)}
+            className="!p-0"
+            isRemoveCloseBtn
+          >
+            <Chat />
+          </CommonModal>
+        )}
       </div>
     </section>
   );
